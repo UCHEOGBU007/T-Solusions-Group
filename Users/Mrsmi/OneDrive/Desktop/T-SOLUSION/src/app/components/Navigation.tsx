@@ -15,7 +15,7 @@ export function Navigation() {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/Home" },
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Portfolio", path: "/portfolio" },
