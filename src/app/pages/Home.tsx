@@ -6,11 +6,16 @@ import {
   Cloud,
   Palette,
   CheckCircle,
-  Users,
   Rocket,
+  ChevronDown,
+  Globe,
+  Search,
+  CheckCircle2,
 } from "lucide-react";
 import { Link } from "react-router";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { motion, AnimatePresence } from "framer-motion";
+import PricingSection from "../components/Plans";
 
 // --- New Counter Component ---
 function StatCounter({
@@ -70,6 +75,69 @@ function StatCounter({
 // --- End Counter Component ---
 
 export function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const brandColor = "#0CA7E6";
+  const whatsappLink = "https://wa.me/6285746358657";
+
+  //plans array for plans section
+
+  const plans = [
+    {
+      title: "Web Development",
+      price: "1.500",
+      description: "High-converting single page landing pages.",
+      icon: <Globe className="w-8 h-8 text-[#0CA7E6]" />,
+      features: [
+        "Custom UI Design",
+        "Responsive Layout",
+        "SEO Friendly",
+        "1 Week Delivery",
+      ],
+      isPopular: false,
+    },
+    {
+      title: "Mobile App Dev",
+      price: "7.500.000",
+      description: "Android & iOS cross-platform solutions.",
+      icon: <Smartphone className="w-8 h-8 text-[#0CA7E6]" />,
+      features: [
+        "React Native/Flutter",
+        "User Authentication",
+        "API Integration",
+        "Store Publishing",
+      ],
+      isPopular: true,
+    },
+    {
+      title: "SEO Services",
+      price: "850.000",
+      description: "Dominate search results and drive traffic.",
+      icon: <Search className="w-8 h-8 text-[#0CA7E6]" />,
+      features: [
+        "Keyword Research",
+        "On-Page Optimization",
+        "Backlink Strategy",
+        "Monthly Analytics",
+      ],
+      isPopular: false,
+    },
+    {
+      title: "Graphic Design",
+      price: "150",
+      description: "Branding and visual identity that speaks.",
+      icon: <Palette className="w-8 h-8 text-[#0CA7E6]" />,
+      features: [
+        "Logo Design",
+        "Social Media Kits",
+        "Brand Guidelines",
+        "Unlimited Revisions",
+      ],
+      isPopular: false,
+    },
+  ];
+
+  //features array for features section
   const features = [
     {
       icon: <Code className="w-8 h-8" />,
@@ -94,7 +162,31 @@ export function Home() {
       description: "Beautiful, intuitive interfaces that users love",
     },
   ];
+  // faq array for FAQ section
+  const faqs = [
+    {
+      question: "What is your typical project timeline?",
+      answer:
+        "Project timelines vary based on complexity. A simple MVP might take 4-6 weeks, while a complex enterprise application could take 3-6 months. We provide detailed milestones during our roadmap phase.",
+    },
+    {
+      question: "Do you offer post-launch support?",
+      answer:
+        "Absolutely. We offer tiered maintenance packages that include security patches, performance monitoring, and feature updates to ensure your app stays ahead of the curve.",
+    },
+    {
+      question: "What technologies do you specialize in?",
+      answer:
+        "Our core stack includes React/Next.js, Node.js, and Python. We are experts in building scalable architectures on AWS, Azure, and Google Cloud.",
+    },
+    {
+      question: "Can we sign an NDA before discussing project details?",
+      answer:
+        "Yes, we prioritize your intellectual property. We can provide a standard NDA or sign yours before we dive into any technical specifics.",
+    },
+  ];
 
+  // stats array for stats section
   const stats = [
     { number: "57+", label: "Projects Completed" },
     { number: "85%", label: "Happy Clients" },
@@ -102,39 +194,72 @@ export function Home() {
     { number: "8+", label: "Years Experience" },
   ];
 
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = ["/Herosection.jpg", "/Homehero.avif", "/Hero2.jpg"];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
   return (
     <div>
       {/* Hero Section */}
-      //{" "}
-      <section className="relative bg-[url('/Herosection.jpg')] bg-cover bg-center bg-no-repeat text-white ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-50">
+
+      <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden bg-black font-['Inter',_sans-serif] sm:py-32  ">
+        {/* Dynamic Background Wrapper */}
+        <div className="absolute inset-0 z-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImage}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 0.6, scale: 1 }} // 0.6 opacity to let the blue/black base show through
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${images[currentImage]})` }}
+            />
+          </AnimatePresence>
+          {/* Blue Gradient Overlay to align with [#0CA7E6] */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071d2c] via-transparent to-transparent opacity-80" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl font-bold mb-6">
-                Transform Your Ideas Into Digital Reality
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-white">
+                Transform Your Ideas Into{" "}
+                <span className="text-[#0CA7E6]">Digital Reality</span>
               </h1>
-              <p className="text-xl mb-8 text-blue-100">
+              <p className="text-xl mb-8 text-blue-100 max-w-lg">
                 We are a leading software development agency specializing in
-                creating innovative solutions that drive business growth and
-                digital transformation.
+                creating innovative solutions that drive business growth.
               </p>
+
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="bg-white text-[#0CA7E6] px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center"
+                  className="bg-[#0CA7E6] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#0a86b8] transition-all transform hover:-translate-y-1 inline-flex items-center shadow-lg shadow-blue-500/20"
                 >
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#0CA7E6] transition-colors inline-flex items-center"
+                  className="border-2 border-white/30 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#0CA7E6] transition-all inline-flex items-center"
                 >
                   View Our Work
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -209,6 +334,63 @@ export function Home() {
                 <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* plan section */}
+      <div>
+        <PricingSection />
+      </div>
+
+      {/* DYNAMIC FAQ ACCORDION SECTION */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <h2 className="text-4xl font-black mb-2">Knowledge Base</h2>
+              <p className="text-slate-500">
+                Frequently asked questions regarding our process.
+              </p>
+            </div>
+            <div
+              className="hidden md:block h-1 w-24 mb-4"
+              style={{ backgroundColor: brandColor }}
+            ></div>
+          </div>
+
+          <div className="divide-y divide-slate-100">
+            {faqs.map((faq, index) => {
+              const isActive = openFaq === index;
+              return (
+                <div
+                  key={index}
+                  className={`group py-6 cursor-pointer transition-all ${isActive ? "px-6 bg-slate-50 rounded-2xl border-none" : "px-0"}`}
+                  onClick={() => setOpenFaq(isActive ? null : index)}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3
+                      className={`text-xl font-bold transition-all duration-300 ${isActive ? "text-[#0CA7E6]" : "text-slate-700 group-hover:text-[#0CA7E6]"}`}
+                    >
+                      {faq.question}
+                    </h3>
+                    <div
+                      className={`transition-transform duration-500 ${isActive ? "rotate-180 text-[#0CA7E6]" : "text-slate-300"}`}
+                    >
+                      <ChevronDown size={24} />
+                    </div>
+                  </div>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"}`}
+                  >
+                    <p className="text-slate-600 leading-relaxed text-lg border-l-4 border-[#0CA7E6] pl-6">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

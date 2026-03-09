@@ -1,7 +1,16 @@
-import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Clock,
+  ChevronUp,
+  ExternalLink,
+} from "lucide-react";
 import { useState } from "react";
 
 export function Contact() {
+  const brandColor = "#0CA7E6";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,16 +22,16 @@ export function Contact() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would normally send the form data to a server
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -37,206 +46,171 @@ export function Contact() {
     }, 3000);
   };
 
-  const contactInfo = [
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      details: ["info@devstudio.com", "support@devstudio.com"],
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Office",
-      details: ["123 Tech Street", "Silicon Valley, CA 94025"],
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Business Hours",
-      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 10:00 AM - 2:00 PM"],
-    },
-  ];
-
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Let's discuss how we can help bring your project to life
+    <div className="bg-white font-sans antialiased text-slate-900">
+      {/* DYNAMIC HERO SECTION
+          Uses a high-quality dark tech background with a brand-colored overlay 
+      */}
+      <section className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
+        <div
+          className="absolute inset-0 z-0 bg-fixed bg-cover bg-center opacity-40 scale-105"
+          style={{
+            backgroundImage: `url('/Contact-us.avif')`,
+          }}
+        />
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: `linear-gradient(to bottom, transparent, rgba(12, 167, 230, 0.2))`,
+          }}
+        />
+
+        <div className="relative z-20 max-w-5xl mx-auto px-6 text-center">
+          <span
+            className="inline-block px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 shadow-sm"
+            style={{ backgroundColor: brandColor, color: "white" }}
+          >
+            Get In Touch
+          </span>
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+            Let's Build Something{" "}
+            <span style={{ color: brandColor }}>Exceptional.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+            From initial concept to deployment—partner with a team that speaks
+            the language of innovation.
           </p>
         </div>
       </section>
 
-      {/* Contact Form and Info Section */}
-      <section className="py-20 bg-white">
+      {/* Main Content */}
+      <section className="py-24 -mt-20 relative z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden grid lg:grid-cols-5 border border-slate-100">
             {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
-              <p className="text-gray-600 mb-8">
-                Fill out the form below and we'll get back to you within 24 hours.
+            <div className="lg:col-span-3 p-8 md:p-14">
+              <h2 className="text-3xl font-bold mb-2">Initialize Project</h2>
+              <p className="text-slate-600 mb-10">
+                Fill out the brief below to start the conversation.
               </p>
-
-              {submitted && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-700 font-semibold">
-                    Thank you for contacting us! We'll be in touch soon.
-                  </p>
-                </div>
-              )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold mb-2">
-                      Full Name *
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      Full Name
                     </label>
                     <input
                       type="text"
-                      id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                      placeholder="John Doe"
+                      className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-[#0CA7E6] outline-none transition-colors"
+                      placeholder="e.g. Alan Turing"
+                      onChange={handleChange}
+                      value={formData.name}
                     />
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                      Email Address *
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      Email
                     </label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                      placeholder="john@example.com"
+                      className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-[#0CA7E6] outline-none transition-colors"
+                      placeholder="alan@dev.com"
+                      onChange={handleChange}
+                      value={formData.email}
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                      placeholder="+1 (555) 123-4567"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-semibold mb-2">
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                      placeholder="Your Company"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="block text-sm font-semibold mb-2">
-                    Service Interested In *
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Project Type
                   </label>
                   <select
-                    id="service"
                     name="service"
-                    value={formData.service}
-                    onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-[#0CA7E6] outline-none transition-colors appearance-none"
+                    onChange={handleChange}
+                    value={formData.service}
                   >
-                    <option value="">Select a service</option>
-                    <option value="web">Web Development</option>
-                    <option value="mobile">Mobile App Development</option>
-                    <option value="cloud">Cloud Solutions</option>
-                    <option value="design">UI/UX Design</option>
-                    <option value="other">Other</option>
+                    <option value="">Select a Category</option>
+                    <option value="web">SaaS / Web Application</option>
+                    <option value="mobile">Mobile (iOS/Android)</option>
+                    <option value="cloud">Cloud Architecture</option>
                   </select>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold mb-2">
-                    Project Details *
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Brief Detail
                   </label>
                   <textarea
-                    id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    rows={4}
                     required
-                    rows={6}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="Tell us about your project..."
+                    className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-[#0CA7E6] outline-none transition-colors resize-none"
+                    placeholder="What are we building?"
+                    onChange={handleChange}
+                    value={formData.message}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center"
+                  className="mt-4 px-10 py-4 rounded-full text-white font-bold cursor-pointer transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95 flex items-center gap-3 shadow-[0_10px_25px_-5px_rgba(12,167,230,0.4)] hover:shadow-[0_20px_35px_-10px_rgba(12,167,230,0.6)]"
+                  style={{
+                    background: `linear-gradient(135deg, ${brandColor} 0%, #087EB0 100%)`,
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                  }}
                 >
-                  Send Message
-                  <Send className="ml-2 w-5 h-5" />
+                  Transmit Message <Send size={18} />
                 </button>
               </form>
             </div>
 
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-              <p className="text-gray-600 mb-8">
-                We'd love to hear from you. Here's how you can reach us.
-              </p>
-
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="text-blue-600 mr-4 mt-1">{info.icon}</div>
+            {/* Sidebar Info (2/5 Columns) */}
+            <div className="lg:col-span-2 bg-slate-900 p-8 md:p-14 text-white flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-bold mb-8">Direct Access</h3>
+                <div className="space-y-10">
+                  <div className="flex gap-4">
+                    <div className="p-3 rounded-lg bg-white/5 text-[#0CA7E6]">
+                      <Phone size={24} />
+                    </div>
                     <div>
-                      <h3 className="font-semibold mb-2">{info.title}</h3>
-                      {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-gray-600">
-                          {detail}
-                        </p>
-                      ))}
+                      <p className="text-xs text-slate-400 uppercase font-bold tracking-widest">
+                        Call
+                      </p>
+                      <p className="text-lg">+1 (555) 000-TECH</p>
                     </div>
                   </div>
-                ))}
+                  <div className="flex gap-4">
+                    <div className="p-3 rounded-lg bg-white/5 text-[#0CA7E6]">
+                      <Mail size={24} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase font-bold tracking-widest">
+                        Email
+                      </p>
+                      <p className="text-lg">hello@devstudio.com</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Map Section */}
-              <div className="mt-8">
-                <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <MapPin className="w-12 h-12 mx-auto mb-2" />
-                    <p>Map Location</p>
-                    <p className="text-sm">123 Tech Street, Silicon Valley</p>
-                  </div>
+              <div className="pt-10 border-t border-white/10">
+                <p className="text-slate-400 text-sm mb-4 italic">
+                  "Transforming code into capital."
+                </p>
+                <div className="flex gap-4">
+                  <div className="h-2 w-2 rounded-full animate-pulse bg-green-500"></div>
+                  <span className="text-xs text-slate-300 font-medium">
+                    Currently accepting new projects
+                  </span>
                 </div>
               </div>
             </div>
@@ -244,59 +218,12 @@ export function Contact() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">
-              Quick answers to common questions
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              {
-                question: "What is your typical project timeline?",
-                answer: "Project timelines vary based on complexity and scope. A simple website might take 4-6 weeks, while a complex application could take 3-6 months. We'll provide a detailed timeline during our initial consultation.",
-              },
-              {
-                question: "Do you offer ongoing support after project completion?",
-                answer: "Yes, we offer comprehensive maintenance and support packages to ensure your application runs smoothly. We also provide training and documentation for your team.",
-              },
-              {
-                question: "What technologies do you specialize in?",
-                answer: "We specialize in modern web technologies including React, Vue, Angular, Node.js, Python, and cloud platforms like AWS, Azure, and Google Cloud. We always use the best technology for your specific needs.",
-              },
-              {
-                question: "How do you handle project communication?",
-                answer: "We believe in transparent communication. You'll have a dedicated project manager and regular updates through your preferred channels (email, Slack, video calls). We also use project management tools for tracking progress.",
-              },
-            ].map((faq, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-3">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Schedule a free consultation with our team to discuss your project requirements.
-          </p>
-          <a
-            href="tel:+15551234567"
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-block"
-          >
-            Call Us Now
-          </a>
-        </div>
-      </section>
+      {/* Final Footer CTA */}
+      <footer className="py-12 border-t border-slate-100 text-center">
+        <p className="text-slate-400 text-sm tracking-widest uppercase">
+          © 2026 Your Software Studio • Engineering Excellence
+        </p>
+      </footer>
     </div>
   );
 }

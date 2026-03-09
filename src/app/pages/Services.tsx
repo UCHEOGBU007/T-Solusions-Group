@@ -4,8 +4,10 @@ import {
   Code,
   Smartphone,
   Cloud,
+  Code2,
   Palette,
   Database,
+  Terminal,
   Shield,
   Zap,
   HeadphonesIcon,
@@ -16,6 +18,7 @@ import {
   Rocket,
 } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import PricingSection from "../components/Plans";
 
 export function Services() {
   const services = [
@@ -108,28 +111,79 @@ export function Services() {
     },
   ];
 
+  const brandColor = "#0CA7E6";
+
   return (
     <div className="bg-white selection:bg-blue-100">
-      {/* 1. HERO SECTION */}
-      <section className="relative py-32 bg-slate-950 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(12,167,230,0.25),transparent_70%)]" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20">
-            <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-            <span className="text-xs font-bold tracking-widest text-blue-400 uppercase">
-              Premium Ecosystem
-            </span>
+      {/* 1. HERO SECTION: High-Tech Service Ecosystem */}
+      <section className="relative py-40 bg-slate-900 overflow-hidden flex items-center justify-center">
+        {/* REAL IMAGE: Professional syntax highlighting and digital development 
+          Sourced to reflect high-end engineering expertise.
+      */}
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-40 scale-105"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop')`,
+            filter: "brightness(0.5) contrast(1.1)",
+          }}
+        />
+
+        {/* Sophisticated UI Overlays */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent" />
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_20%_40%,rgba(12,167,230,0.15),transparent_60%)]" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-left w-full">
+          <div className="max-w-3xl">
+            {/* Status Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 mb-8 rounded-full bg-[#0CA7E6]/10 border border-[#0CA7E6]/30 backdrop-blur-xl">
+              <Terminal className="w-4 h-4 text-[#0CA7E6]" />
+              <span className="text-xs font-black tracking-[0.3em] text-[#0CA7E6] uppercase">
+                Engineering Excellence
+              </span>
+            </div>
+
+            <h1 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
+              <span className="block mb-4 text-slate-200">Modern Code.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CA7E6] via-[#4EE3FF] to-white">
+                Digital Dominance.
+              </span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mb-12 leading-relaxed font-light">
+              We architect{" "}
+              <span className="text-white font-medium italic underline decoration-[#0CA7E6] decoration-2 underline-offset-8">
+                scalable ecosystems
+              </span>{" "}
+              that transform technical debt into competitive market advantages.
+            </p>
+
+            <div className="flex flex-wrap gap-6 items-center">
+              <Link
+                to="/contact"
+                className="px-10 py-5 rounded-full text-white font-bold cursor-pointer transition-all duration-500 hover:scale-105 active:scale-95 shadow-[0_20px_40px_-10px_rgba(12,167,230,0.5)] flex items-center gap-3 w-fit group"
+                style={{
+                  background: `linear-gradient(135deg, ${brandColor} 0%, #087EB0 100%)`,
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                }}
+              >
+                <span>Build My Project</span>
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+              </Link>
+
+              <div className="flex items-center gap-4 text-slate-400 font-mono text-sm">
+                <Code2 className="text-[#0CA7E6]" />
+                <span>Full-Stack Mastery</span>
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tighter leading-tight">
-            Digital Solutions <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CA7E6] via-[#4EE3FF] to-white">
-              Without Limits.
-            </span>
-          </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            From technical infrastructure to brand visibility, we provide the
-            end-to-end expertise required for modern digital dominance.
-          </p>
+        </div>
+
+        {/* Modern Scroll Vertical Line */}
+        <div className="absolute bottom-0 right-20 flex flex-col items-center gap-4 hidden lg:flex">
+          <span className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.5em] rotate-90 mb-16 origin-bottom-right">
+            Scroll Down
+          </span>
+          <div className="w-px h-32 bg-gradient-to-b from-transparent via-[#0CA7E6] to-transparent"></div>
         </div>
       </section>
 
@@ -274,6 +328,11 @@ export function Services() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* 3. PRICING: The Plans Section */}
+      <section className="py-24">
+        <PricingSection />
       </section>
 
       {/* 5. CTA: Immersive Dark with Glow */}
