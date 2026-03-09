@@ -298,7 +298,9 @@ export function Home() {
               />
             </div>
             <div>
-              <h2 className="text-4xl font-bold mb-6">Why Choose DevStudio?</h2>
+              <h2 className="text-4xl font-bold mb-6">
+                Why Choose T-Solusions Group?
+              </h2>
               <p className="text-gray-600 mb-6">
                 We combine technical expertise with creative thinking to deliver
                 exceptional software solutions that exceed expectations.

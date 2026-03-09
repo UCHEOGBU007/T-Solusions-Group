@@ -120,13 +120,21 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2 text-gray-400">
                 <Phone size={20} />
-                <a href="tel:">
-                  <span>+1 (555) 123-4567</span>
+                <a
+                  href="tel:+6285746358657"
+                  className="hover:text-[#0ca7e6] transition-colors"
+                >
+                  <span>+62 857 4635 8657</span>
                 </a>
               </li>
               <li className="flex items-center space-x-2 text-gray-400">
-                <Mail size={20} />
-                <span>info@devstudio.com</span>
+                <a
+                  href="mailto:tsolusions@gmail.com"
+                  className="hover:text-[#0ca7e6] transition-colors inline-flex items-center ml-4px gap-2px"
+                >
+                  <Mail size={20} />
+                  <span>tsolusions@gmail.com</span>
+                </a>
               </li>
             </ul>
           </div>
