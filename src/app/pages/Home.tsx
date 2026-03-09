@@ -106,7 +106,7 @@ export function Home() {
     <div>
       {/* Hero Section */}
       //{" "}
-      <section className="relative bg-[url('src\Images-logo\T-solusions-icon.png')] bg-cover bg-center bg-no-repeat text-white ">
+      <section className="relative bg-[url('/src/Images/Herosection.jpg')] bg-cover bg-center bg-no-repeat text-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-50">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
