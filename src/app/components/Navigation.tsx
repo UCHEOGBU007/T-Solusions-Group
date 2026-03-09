@@ -42,7 +42,7 @@ export function Navigation() {
             {/* ICON + GLOW */}
             <div className="relative flex-shrink-0">
               <img
-                src="src\Images\T-solusions-icon.png"
+                src="/T-solusions-icon.png"
                 alt="T-Solusion Logo"
                 className="h-14 w-14 md:h-16 md:w-16 rounded-xl object-cover"
               />
@@ -52,7 +52,7 @@ export function Navigation() {
             {/* COMPANY NAME */}
             <div className="flex flex-col justify-center">
               <img
-                src="src\Images\logo-tsolusions .png"
+                src="/logo-tsolusions.png"
                 alt="T-Solusion Text Logo"
                 className="h-6 w-auto md:h-8 object-contain"
               />
