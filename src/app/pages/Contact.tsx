@@ -48,9 +48,7 @@ export function Contact() {
 
   return (
     <div className="bg-white font-sans antialiased text-slate-900">
-      {/* DYNAMIC HERO SECTION
-          Uses a high-quality dark tech background with a brand-colored overlay 
-      */}
+      {/* DYNAMIC HERO SECTION */}
       <section className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
         <div
           className="absolute inset-0 z-0 bg-fixed bg-cover bg-center opacity-40 scale-105"
@@ -76,7 +74,7 @@ export function Contact() {
             Let's Build Something{" "}
             <span style={{ color: brandColor }}>Exceptional.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto font-bold leading-relaxed">
             From initial concept to deployment—partner with a team that speaks
             the language of innovation.
           </p>

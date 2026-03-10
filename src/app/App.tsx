@@ -6,6 +6,7 @@ import { About } from "./pages/About";
 import { Services } from "./pages/Services";
 import { Portfolio } from "./pages/Portfolio";
 import { Contact } from "./pages/Contact";
+import { TermsPage } from "./pages/Policies";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/terms" element={<TermsPage />} />
           </Routes>
         </main>
         <Footer />

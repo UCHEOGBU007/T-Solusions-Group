@@ -264,28 +264,39 @@ export function Home() {
         </div>
       </section>
       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600">
-              Comprehensive software solutions tailored to your needs
-            </p>
+
+      <motion.div
+        key={currentImage}
+        initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller for a cleaner zoom
+        whileInView={{ opacity: 0.6, scale: 1 }} // Triggers on scroll
+        viewport={{ once: true, amount: 0.3 }} // 'once: true' means it won't re-animate every time you scroll up/down
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+              <p className="text-xl text-gray-600">
+                Comprehensive software solutions tailored to your needs
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow"
+                >
+                  <div className="text-[#0CA7E6] mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow"
-              >
-                <div className="text-[#0CA7E6] mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </motion.div>
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

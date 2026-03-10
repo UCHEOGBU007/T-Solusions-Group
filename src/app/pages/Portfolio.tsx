@@ -155,7 +155,7 @@ export function Portfolio() {
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mt-4 mb-6 tracking-tight">
               Selected <span className="text-[#0CA7E6]">Works</span>
             </h1>
-            <p className="text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed">
               We bridge the gap between complex problems and elegant digital
               solutions. Explore our journey through code and design.
             </p>
@@ -262,7 +262,7 @@ export function Portfolio() {
             slidesPerView={1}
             centeredSlides={false}
             loop={true}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             breakpoints={{
               640: { slidesPerView: 1 },

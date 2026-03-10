@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import PricingSection from "../components/Plans";
+import { motion } from "framer-motion";
 
 export function Services() {
   const services = [
@@ -131,52 +132,58 @@ export function Services() {
         {/* Sophisticated UI Overlays */}
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_20%_40%,rgba(12,167,230,0.15),transparent_60%)]" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-left w-full">
+            <div className="max-w-3xl">
+              {/* Status Badge */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 mb-8 rounded-full bg-[#0CA7E6]/10 border border-[#0CA7E6]/30 backdrop-blur-xl">
+                <Terminal className="w-4 h-4 text-[#0CA7E6]" />
+                <span className="text-xs font-black tracking-[0.3em] text-[#0CA7E6] uppercase">
+                  Engineering Excellence
+                </span>
+              </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-left w-full">
-          <div className="max-w-3xl">
-            {/* Status Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 mb-8 rounded-full bg-[#0CA7E6]/10 border border-[#0CA7E6]/30 backdrop-blur-xl">
-              <Terminal className="w-4 h-4 text-[#0CA7E6]" />
-              <span className="text-xs font-black tracking-[0.3em] text-[#0CA7E6] uppercase">
-                Engineering Excellence
-              </span>
-            </div>
+              <h1 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
+                <span className="block mb-4 text-slate-200">Modern Code.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CA7E6] via-[#4EE3FF] to-white">
+                  Digital Dominance.
+                </span>
+              </h1>
 
-            <h1 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
-              <span className="block mb-4 text-slate-200">Modern Code.</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CA7E6] via-[#4EE3FF] to-white">
-                Digital Dominance.
-              </span>
-            </h1>
+              <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mb-12 leading-relaxed font-light">
+                We architect{" "}
+                <span className="text-white font-medium italic underline decoration-[#0CA7E6] decoration-2 underline-offset-8">
+                  scalable ecosystems
+                </span>{" "}
+                that transform technical debt into competitive market
+                advantages.
+              </p>
 
-            <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mb-12 leading-relaxed font-light">
-              We architect{" "}
-              <span className="text-white font-medium italic underline decoration-[#0CA7E6] decoration-2 underline-offset-8">
-                scalable ecosystems
-              </span>{" "}
-              that transform technical debt into competitive market advantages.
-            </p>
+              <div className="flex flex-wrap gap-6 items-center">
+                <Link
+                  to="/contact"
+                  className="px-10 py-5 rounded-full text-white font-bold cursor-pointer transition-all duration-500 hover:scale-105 active:scale-95 shadow-[0_20px_40px_-10px_rgba(12,167,230,0.5)] flex items-center gap-3 w-fit group"
+                  style={{
+                    background: `linear-gradient(135deg, ${brandColor} 0%, #087EB0 100%)`,
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                  }}
+                >
+                  <span>Build My Project</span>
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                </Link>
 
-            <div className="flex flex-wrap gap-6 items-center">
-              <Link
-                to="/contact"
-                className="px-10 py-5 rounded-full text-white font-bold cursor-pointer transition-all duration-500 hover:scale-105 active:scale-95 shadow-[0_20px_40px_-10px_rgba(12,167,230,0.5)] flex items-center gap-3 w-fit group"
-                style={{
-                  background: `linear-gradient(135deg, ${brandColor} 0%, #087EB0 100%)`,
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
-                }}
-              >
-                <span>Build My Project</span>
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
-              </Link>
-
-              <div className="flex items-center gap-4 text-slate-400 font-mono text-sm">
-                <Code2 className="text-[#0CA7E6]" />
-                <span>Full-Stack Mastery</span>
+                <div className="flex items-center gap-4 text-slate-400 font-mono text-sm">
+                  <Code2 className="text-[#0CA7E6]" />
+                  <span>Full-Stack Mastery</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Modern Scroll Vertical Line */}
         <div className="absolute bottom-0 right-20 flex flex-col items-center gap-4 hidden lg:flex">
@@ -187,92 +194,100 @@ export function Services() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-24 lg:space-y-40">
-            {" "}
-            {/* Reduced gap for mobile */}
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-              >
-                {/* Content Side */}
-                <div className="w-full lg:w-1/2 space-y-6 lg:space-y-8">
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl flex items-center justify-center text-[#0CA7E6] shadow-sm">
-                    <service.Icon size={28} className="lg:size-32" />
+      {/* service section list  */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 40 }} // start smaller and shifted down
+        whileInView={{ opacity: 1, scale: 1, y: 0 }} // animate to full size and position
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1.1, ease: "easeOut" }}
+      >
+        <section className="py-16 lg:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="space-y-24 lg:space-y-40">
+              {" "}
+              {/* Reduced gap for mobile */}
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
+                >
+                  {/* Content Side */}
+                  <div className="w-full lg:w-1/2 space-y-6 lg:space-y-8">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl flex items-center justify-center text-[#0CA7E6] shadow-sm">
+                      <service.Icon size={28} className="lg:size-32" />
+                    </div>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+                      {service.title}
+                    </h2>
+                    <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+                      {service.features.map((f, i) => (
+                        <li
+                          key={i}
+                          className="flex items-center gap-3 text-slate-700 font-medium text-sm lg:text-base"
+                        >
+                          <CheckCircle2 className="w-5 h-5 text-[#0CA7E6] shrink-0" />{" "}
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 font-bold text-[#0CA7E6] group transition-all hover:gap-4 pt-4"
+                    >
+                      Inquire about this service
+                      <ArrowRight className="w-5 h-5 transition-transform" />
+                    </Link>
                   </div>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
-                    {service.title}
-                  </h2>
-                  <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
-                    {service.features.map((f, i) => (
-                      <li
-                        key={i}
-                        className="flex items-center gap-3 text-slate-700 font-medium text-sm lg:text-base"
-                      >
-                        <CheckCircle2 className="w-5 h-5 text-[#0CA7E6] shrink-0" />{" "}
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 font-bold text-[#0CA7E6] group transition-all hover:gap-4 pt-4"
-                  >
-                    Inquire about this service
-                    <ArrowRight className="w-5 h-5 transition-transform" />
-                  </Link>
-                </div>
 
-                {/* Interactive Image Side - FIXED FOR MOBILE */}
-                <div className="w-full lg:w-1/2 group relative">
-                  {/* Decorative Background - Hidden on small mobile to prevent overflow, visible on tablet+ */}
-                  <div className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-[#0CA7E6]/20 to-transparent rounded-[2rem] lg:rounded-[2.5rem] rotate-3 scale-105" />
+                  {/* Interactive Image Side - FIXED FOR MOBILE */}
+                  <div className="w-full lg:w-1/2 group relative">
+                    {/* Decorative Background - Hidden on small mobile to prevent overflow, visible on tablet+ */}
+                    <div className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-[#0CA7E6]/20 to-transparent rounded-[2rem] lg:rounded-[2.5rem] rotate-3 scale-105" />
 
-                  <div className="relative h-[300px] sm:h-[400px] lg:h-[480px] w-full overflow-hidden rounded-[2rem] lg:rounded-[2.5rem] shadow-xl lg:shadow-2xl bg-slate-100">
-                    {/* Secondary Image */}
-                    <div className="absolute inset-0 transition-transform duration-1000 ease-in-out group-hover:scale-110">
-                      <ImageWithFallback
-                        src={service.secondaryImg}
-                        alt={`${service.title} workspace`}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
+                    <div className="relative h-[300px] sm:h-[400px] lg:h-[480px] w-full overflow-hidden rounded-[2rem] lg:rounded-[2.5rem] shadow-xl lg:shadow-2xl bg-slate-100">
+                      {/* Secondary Image */}
+                      <div className="absolute inset-0 transition-transform duration-1000 ease-in-out group-hover:scale-110">
+                        <ImageWithFallback
+                          src={service.secondaryImg}
+                          alt={`${service.title} workspace`}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
 
-                    {/* Primary Image - Slide away effect (only works on devices with hover) */}
-                    <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.87,0,0.13,1)] group-hover:translate-x-full lg:group-hover:translate-x-full">
-                      <ImageWithFallback
-                        src={service.primaryImg}
-                        alt={service.title}
-                        className="h-full w-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
-                    </div>
+                      {/* Primary Image - Slide away effect (only works on devices with hover) */}
+                      <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.87,0,0.13,1)] group-hover:translate-x-full lg:group-hover:translate-x-full">
+                        <ImageWithFallback
+                          src={service.primaryImg}
+                          alt={service.title}
+                          className="h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
+                      </div>
 
-                    {/* Reveal Label - Hidden on mobile as there's no hover to trigger it */}
-                    <div className="hidden lg:block absolute bottom-6 left-6 z-20 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">
-                      <p className="text-white text-xs font-black uppercase tracking-[0.2em]">
-                        Explore Technical Details
-                      </p>
+                      {/* Reveal Label - Hidden on mobile as there's no hover to trigger it */}
+                      <div className="hidden lg:block absolute bottom-6 left-6 z-20 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300">
+                        <p className="text-white text-xs font-black uppercase tracking-[0.2em]">
+                          Explore Technical Details
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </motion.div>
 
       {/* 3. CAPABILITIES GRID */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
-              Support Infrastructure
+              Extra Support Infrastructure
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

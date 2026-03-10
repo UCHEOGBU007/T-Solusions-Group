@@ -95,6 +95,14 @@ export function Footer() {
                   Portfolio
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className="text-red-400 hover:text-[#0ca7e6] transition-colors"
+                >
+                  Terms & Policies
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -102,11 +110,21 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li className="text-gray-400">Web Development</li>
-              <li className="text-gray-400">Mobile Apps</li>
-              <li className="text-gray-400">SEO Solutions</li>
-              <li className="text-gray-400">UI/UX Design</li>
-              <li className="text-gray-400">Logo Design</li>
+              <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
+                Web Development
+              </li>
+              <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
+                Mobile Apps
+              </li>
+              <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
+                SEO Solutions
+              </li>
+              <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
+                UI/UX Design
+              </li>
+              <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
+                Logo Design
+              </li>
             </ul>
           </div>
 
@@ -127,13 +145,20 @@ export function Footer() {
                   <span>+62 857 4635 8657</span>
                 </a>
               </li>
-              <li className="flex items-center space-x-2 text-gray-400">
+              <li className="group list-none">
                 <a
                   href="mailto:tsolusions@gmail.com"
-                  className="hover:text-[#0ca7e6] transition-colors inline-flex items-center ml-4px gap-2px"
+                  className="inline-flex items-center gap-3 text-gray-400 transition-all duration-200 ease-in-out hover:text-[#0ca7e6]"
                 >
-                  <Mail size={20} />
-                  <span>tsolusions@gmail.com</span>
+                  {/* Icon Container with fixed centering */}
+                  <span className="flex items-center justify-center">
+                    <Mail size={20} strokeWidth={1.5} />
+                  </span>
+
+                  {/* Text with subtle tracking for professionalism */}
+                  <span className="text-sm font-medium tracking-wide">
+                    tsolusions@gmail.com
+                  </span>
                 </a>
               </li>
             </ul>
