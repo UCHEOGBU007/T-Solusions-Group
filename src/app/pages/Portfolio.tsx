@@ -411,7 +411,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 /**
- * Optimized Animated Counter Component
+ * Stabilized Animated Counter Component
+ * Fixes the "Refresh" bug and mobile visibility issues.
  */
 const Counter = ({
   value,
@@ -423,13 +424,20 @@ const Counter = ({
   icon: React.ComponentType<{ className?: string }>;
 }) => {
   const ref = useRef(null);
-  // Using 'amount' instead of 'margin' to ensure reliability on small mobile screens
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [isMounted, setIsMounted] = useState(false);
   const [displayValue, setDisplayValue] = useState(0);
 
+  // amount: 0.1 triggers as soon as 10% of the card enters the screen
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  // 1. Ensure component is fully mounted to handle browser refreshes/hydration
   useEffect(() => {
-    if (isInView) {
-      // Robust regex to extract only numbers for the animation engine
+    setIsMounted(true);
+  }, []);
+
+  // 2. Run animation only when mounted AND in view
+  useEffect(() => {
+    if (isInView && isMounted) {
       const numericValue = parseInt(value.replace(/[^\d.]/g, "")) || 0;
 
       const controls = animate(0, numericValue, {
@@ -439,9 +447,8 @@ const Counter = ({
       });
       return () => controls.stop();
     }
-  }, [isInView, value]);
+  }, [isInView, isMounted, value]);
 
-  // Extract suffix (like '+' or '%') to display it alongside the animated number
   const suffix = value.replace(/[\d.]/g, "");
 
   return (
@@ -453,7 +460,7 @@ const Counter = ({
         <Icon className="w-6 h-6 text-[#0CA7E6]" />
       </div>
       <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-1">
-        {displayValue}
+        {isMounted ? displayValue : 0}
         {suffix}
       </div>
       <div className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wider text-center">
@@ -503,8 +510,7 @@ export function Portfolio() {
     {
       name: "John Smith",
       company: "TechStart Inc",
-      quote:
-        "DevStudio transformed our vision into reality. Their expertise is unmatched.",
+      quote: "DevStudio transformed our vision into reality.",
       role: "CEO",
     },
     {
@@ -516,14 +522,13 @@ export function Portfolio() {
     {
       name: "Michael Brown",
       company: "RetailMax",
-      quote:
-        "The e-commerce solution increased our sales by 200%. Highly recommended!",
+      quote: "Increased our sales by 200%. Highly recommended!",
       role: "Director",
     },
     {
       name: "Emily Chen",
       company: "CloudScale",
-      quote: "Technical depth and design sensibility in one package.",
+      quote: "Technical depth and design sensibility.",
       role: "CTO",
     },
   ];
@@ -552,7 +557,7 @@ export function Portfolio() {
             </h1>
             <p className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed">
               We bridge the gap between complex problems and elegant digital
-              solutions. Explore our journey through code and design.
+              solutions.
             </p>
           </motion.div>
         </div>
@@ -634,7 +639,7 @@ export function Portfolio() {
         </motion.div>
       </section>
 
-      {/* Optimized Stats Section */}
+      {/* Stabilized Stats Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -698,35 +703,26 @@ export function Portfolio() {
 
       {/* CTA Section */}
       <section className="relative py-32 overflow-hidden bg-white">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[70%] rounded-full bg-blue-50/50 blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[70%] rounded-full bg-sky-100/50 blur-[120px]" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="group relative bg-slate-900 rounded-[2.5rem] p-10 md:p-20 overflow-hidden transition-all duration-700 hover:scale-[1.01] hover:shadow-2xl border border-white/5">
+        <div className="relative max-w-7xl mx-auto px-4">
+          <div className="group relative bg-slate-900 rounded-[2.5rem] p-10 md:p-20 overflow-hidden border border-white/5">
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
               <div className="lg:w-3/5 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-xs font-bold tracking-widest text-blue-400 uppercase bg-blue-400/10 border border-blue-400/20 rounded-full">
-                  Available for New Projects
-                </div>
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+                <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
                   Ready to bring your <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0CA7E6] to-cyan-300">
-                    ideas to life?
-                  </span>
+                  <span className="text-[#0CA7E6]">ideas to life?</span>
                 </h2>
                 <p className="text-gray-400 text-lg max-w-lg mx-auto lg:mx-0">
-                  We don't just build software; we engineer growth. Let's
-                  discuss how to make your project the next industry standard.
+                  Let's discuss how to make your project the next industry
+                  standard.
                 </p>
               </div>
               <div className="flex flex-col gap-6 w-full lg:w-auto">
                 <a
                   href="/contact"
-                  className="group/btn relative inline-flex items-center justify-center px-10 py-5 font-bold text-white transition-all bg-[#0CA7E6] rounded-2xl hover:bg-white hover:text-[#0CA7E6]"
+                  className="inline-flex items-center justify-center px-10 py-5 font-bold text-white bg-[#0CA7E6] rounded-2xl hover:bg-white hover:text-[#0CA7E6] transition-all"
                 >
                   Start Your Journey
-                  <ExternalLink className="ml-3 w-5 h-5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                  <ExternalLink className="ml-3 w-5 h-5" />
                 </a>
               </div>
             </div>
