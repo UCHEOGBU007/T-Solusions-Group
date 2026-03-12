@@ -86,7 +86,7 @@ export const TermsPage: React.FC = () => {
               <p className="text-gray-600 leading-relaxed mb-4">
                 Welcome to{" "}
                 <span className="font-semibold text-gray-900">
-                  T-Solusions Group
+                  PT. Tech Solusions Group
                 </span>
                 . By accessing or using our software development services, you
                 agree to be bound by these terms.

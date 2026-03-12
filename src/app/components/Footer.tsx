@@ -1,14 +1,6 @@
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Github,
-  Instagram,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -25,7 +17,7 @@ export function Footer() {
     tracking-wide
   "
             >
-              T-Solusions Group
+              PT. Tech Solusions Group
             </h3>
             <p className="text-gray-400 mb-4">
               Crafting innovative software solutions that transform businesses
@@ -34,27 +26,23 @@ export function Footer() {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-[#1877F2] hover:text-blue-400 transition-colors"
               >
                 <Facebook size={20} />
               </a>
+
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-[#C13584] hover:text-blue-400 transition-colors"
               >
                 <Instagram size={20} />
+              </a>
+
+              <a
+                href="https://wa.me/6285746358657"
+                className="text-green-400 hover:text-blue-400 transition-colors"
+              >
+                <FaWhatsapp size={20} />
               </a>
             </div>
           </div>
@@ -166,7 +154,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2026 PT Tech Solusion Group. All rights reserved.</p>
+          <p>&copy; 2026 PT. Tech Solusions Group . All rights reserved.</p>
         </div>
       </div>
     </footer>
