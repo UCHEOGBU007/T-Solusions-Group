@@ -122,7 +122,9 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-gray-400">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span>123 Tech Street, Silicon Valley, CA 94025</span>
+                <span>
+                  Palm Putri Regency blok V-6 Sidoarjo, East Java, Indonesia
+                </span>
               </li>
               <li className="flex items-center space-x-2 text-gray-400">
                 <Phone size={20} />

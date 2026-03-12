@@ -3,14 +3,11 @@ import {
   ArrowRight,
   Code,
   Smartphone,
-  Cloud,
   Palette,
   CheckCircle,
   Rocket,
   ChevronDown,
-  Globe,
   Search,
-  CheckCircle2,
 } from "lucide-react";
 import { Link } from "react-router";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -78,64 +75,8 @@ export function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const brandColor = "#0CA7E6";
-  const whatsappLink = "https://wa.me/6285746358657";
 
   //plans array for plans section
-
-  const plans = [
-    {
-      title: "Web Development",
-      price: "1.500",
-      description: "High-converting single page landing pages.",
-      icon: <Globe className="w-8 h-8 text-[#0CA7E6]" />,
-      features: [
-        "Custom UI Design",
-        "Responsive Layout",
-        "SEO Friendly",
-        "1 Week Delivery",
-      ],
-      isPopular: false,
-    },
-    {
-      title: "Mobile App Dev",
-      price: "7.500.000",
-      description: "Android & iOS cross-platform solutions.",
-      icon: <Smartphone className="w-8 h-8 text-[#0CA7E6]" />,
-      features: [
-        "React Native/Flutter",
-        "User Authentication",
-        "API Integration",
-        "Store Publishing",
-      ],
-      isPopular: true,
-    },
-    {
-      title: "SEO Services",
-      price: "850.000",
-      description: "Dominate search results and drive traffic.",
-      icon: <Search className="w-8 h-8 text-[#0CA7E6]" />,
-      features: [
-        "Keyword Research",
-        "On-Page Optimization",
-        "Backlink Strategy",
-        "Monthly Analytics",
-      ],
-      isPopular: false,
-    },
-    {
-      title: "Graphic Design",
-      price: "150",
-      description: "Branding and visual identity that speaks.",
-      icon: <Palette className="w-8 h-8 text-[#0CA7E6]" />,
-      features: [
-        "Logo Design",
-        "Social Media Kits",
-        "Brand Guidelines",
-        "Unlimited Revisions",
-      ],
-      isPopular: false,
-    },
-  ];
 
   //features array for features section
   const features = [
@@ -152,9 +93,10 @@ export function Home() {
         "Native and cross-platform mobile solutions for iOS and Android",
     },
     {
-      icon: <Cloud className="w-8 h-8" />,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and deployment services",
+      icon: <Search className="w-8 h-8" />,
+      title: "SEO Services",
+      description:
+        "Search engine optimization tailored to improve rankings, and strengthen your online presence",
     },
     {
       icon: <Palette className="w-8 h-8" />,
