@@ -53,17 +53,14 @@ export function Contact() {
       };
 
       // A. Submit to Formspree (Your Dashboard)
-      const formspreeResponse = await fetch(
-        `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(sanitizedData),
+      const formspreeResponse = await fetch(import.meta.env.VITE_FORMSPREE_ID, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-      );
+        body: JSON.stringify(sanitizedData),
+      });
 
       if (!formspreeResponse.ok)
         throw new Error("Database synchronization failed.");
