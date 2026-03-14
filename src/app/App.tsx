@@ -24,7 +24,6 @@ function ScrollToTop() {
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Place it inside BrowserRouter so it can access the location */}
       <ScrollToTop />
 
       <div className="min-h-screen flex flex-col">

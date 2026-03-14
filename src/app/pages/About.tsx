@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Link } from "react-router";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export function About() {
   const values = [
@@ -39,13 +39,13 @@ export function About() {
 
   const team = [
     {
-      name: "Sarah Johnson",
+      name: "Gaura crisia",
       role: "CEO & Founder",
-      exp: "15+ Years Experience",
+      exp: "10+ Years Experience",
     },
-    { name: "Michael Chen", role: "CTO", exp: "Cloud Architect" },
-    { name: "Emily Rodriguez", role: "Head of Design", exp: "UX Visionary" },
-    { name: "David Park", role: "Lead Developer", exp: "Full-Stack Expert" },
+    { name: "Leo", role: "CTO", exp: "Cloud Architect" },
+    { name: "Emily ", role: "Head of Design", exp: "UX Visionary" },
+    { name: "David", role: "Lead Developer", exp: "Full-Stack Expert" },
   ];
 
   return (
@@ -135,7 +135,7 @@ export function About() {
                 </h2>
                 <div className="space-y-6 text-gray-600 text-lg">
                   <p>
-                    Founded in 2018, we began with a simple mission: to bridge
+                    Founded in 2025. We began with a simple mission: to bridge
                     the gap between complex technology and business success.
                   </p>
                   <p>
@@ -149,7 +149,7 @@ export function About() {
               <div className="lg:w-1/2 relative">
                 <div className="absolute -inset-4 bg-gray-100 rounded-3xl -rotate-2 -z-10" />
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1765020553734-2c050ddb9494?..."
+                  src="/About-main-section.jpg"
                   alt="Team work"
                   className="rounded-2xl shadow-2xl w-full h-[450px] object-cover"
                 />
