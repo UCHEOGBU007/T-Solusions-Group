@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaTiktok } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -25,21 +25,36 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://web.facebook.com/profile.php?id=61586383870234"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#1877F2] hover:text-blue-400 transition-colors"
               >
                 <Facebook size={20} />
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/tsolusions"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#C13584] hover:text-blue-400 transition-colors"
               >
                 <Instagram size={20} />
               </a>
 
               <a
+                href="https://www.tiktok.com/@tsolusions.group"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-400 transition-colors"
+              >
+                <FaTiktok size={20} />
+              </a>
+
+              <a
                 href="https://wa.me/6285746358657"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-green-400 hover:text-blue-400 transition-colors"
               >
                 <FaWhatsapp size={20} />
@@ -99,10 +114,10 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
-                Web Development
+                Website Development
               </li>
               <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
-                Mobile Apps
+                Mobile Apps Development
               </li>
               <li className="text-gray-400 hover:text-[#0ca7e6] transition-colors">
                 SEO Solutions
@@ -137,7 +152,7 @@ export function Footer() {
               </li>
               <li className="group list-none">
                 <a
-                  href="mailto:tsolusions@gmail.com"
+                  href="mailto:Info@tsolusions.com"
                   className="inline-flex items-center gap-3 text-gray-400 transition-all duration-200 ease-in-out hover:text-[#0ca7e6]"
                 >
                   {/* Icon Container with fixed centering */}
@@ -147,7 +162,7 @@ export function Footer() {
 
                   {/* Text with subtle tracking for professionalism */}
                   <span className="text-sm font-medium tracking-wide">
-                    tsolusions@gmail.com
+                    Info@tsolusions.com
                   </span>
                 </a>
               </li>

@@ -178,7 +178,7 @@ export function Contact() {
                       required
                       disabled={status === "loading"}
                       className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-[#0CA7E6] outline-none transition-colors disabled:opacity-50"
-                      placeholder="e.g. Alan Turing"
+                      placeholder="e.g. Full Name"
                       onChange={handleChange}
                       value={formData.name}
                     />
@@ -193,7 +193,7 @@ export function Contact() {
                       required
                       disabled={status === "loading"}
                       className="w-full px-0 py-3 bg-transparent border-b-2 border-slate-200 focus:border-[#0CA7E6] outline-none transition-colors disabled:opacity-50"
-                      placeholder="alan@dev.com"
+                      placeholder="e.g. email@example.com"
                       onChange={handleChange}
                       value={formData.email}
                     />
@@ -213,10 +213,15 @@ export function Contact() {
                     value={formData.service}
                   >
                     <option value="">Select a Category</option>
-                    <option value="web">SaaS / Web Application</option>
-                    <option value="mobile">Mobile (iOS/Android)</option>
+                    <option value="web development">
+                      SaaS / Web Application
+                    </option>
+                    <option value="mobile app development">
+                      Mobile (iOS/Android)
+                    </option>
                     <option value="seo-services">SEO Services</option>
-                    <option value="graphic">Graphic Design</option>
+                    <option value="graphic design">Graphic Design</option>
+                    <option value="Other Inquiries">Other Inquiries</option>
                   </select>
                 </div>
 
@@ -239,7 +244,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="mt-4 px-10 py-4 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 shadow-lg disabled:grayscale disabled:cursor-not-allowed"
+                  className="mt-4 px-10 py-4 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 hover:cursor-pointer active:scale-95 flex items-center gap-3 shadow-lg disabled:grayscale disabled:cursor-not-allowed"
                   style={{
                     background:
                       status === "loading"
@@ -253,7 +258,7 @@ export function Contact() {
                     </>
                   ) : (
                     <>
-                      Transmit Message <Send size={18} />
+                      Send Message <Send size={18} />
                     </>
                   )}
                 </button>
@@ -273,7 +278,12 @@ export function Contact() {
                       <p className="text-xs text-slate-400 uppercase font-bold tracking-widest">
                         Call
                       </p>
-                      <p className="text-lg">+62 857 4635 8657</p>
+                      <a
+                        href="tel:+6285746358657"
+                        className="text-lg hover:text-[#0CA7E6] transition-colors"
+                      >
+                        +62 857 4635 8657
+                      </a>
                     </div>
                   </div>
                   <div className="flex gap-4 group">
@@ -284,7 +294,19 @@ export function Contact() {
                       <p className="text-xs text-slate-400 uppercase font-bold tracking-widest">
                         Email
                       </p>
-                      <p className="text-lg">support@tsolusions.com</p>
+                      <a
+                        href="mailto:support@tsolusions.com"
+                        className="text-lg hover:text-[#0CA7E6] transition-colors"
+                      >
+                        support@tsolusions.com
+                      </a>
+                      <br />
+                      <a
+                        href="mailto:Info@tsolusions.com"
+                        className="text-lg hover:text-[#0CA7E6] transition-colors"
+                      >
+                        Info@tsolusions.com
+                      </a>
                     </div>
                   </div>
                 </div>

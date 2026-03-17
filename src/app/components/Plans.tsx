@@ -1,18 +1,15 @@
-import React, { useState } from "react";
 import { Globe, Smartphone, Search, Palette, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const PricingSection = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-
   const whatsappLink = "https://wa.me/6285746358657";
 
   const plans = [
     {
       title: "Web Development",
-      price: "950.000",
-      originalPrice: "1.500.000",
-      description: "High-converting premium landing pages for business growth.",
+      price: "1,800.000",
+      originalPrice: "5,500.000",
+      description: "High premium landing page for business growth .",
       icon: <Globe className="w-8 h-8 text-[#0CA7E6]" />,
       features: [
         "Custom UI/UX Design",
@@ -24,7 +21,7 @@ export const PricingSection = () => {
     },
     {
       title: "Mobile App Dev",
-      price: "7.500.000",
+      price: "7,500.000",
       description: "Custom Android & iOS solutions with native performance.",
       icon: <Smartphone className="w-8 h-8 text-[#0CA7E6]" />,
       features: [
@@ -36,8 +33,8 @@ export const PricingSection = () => {
       isPopular: false,
     },
     {
-      title: "SEO Services",
-      price: "850.000",
+      title: "Basic SEO Services",
+      price: "1,550.000",
       description: "Dominate Google search results and organic traffic.",
       icon: <Search className="w-8 h-8 text-[#0CA7E6]" />,
       features: [
@@ -79,7 +76,6 @@ export const PricingSection = () => {
       {/* Price card container */}
 
       <motion.div
-        key={currentImage}
         initial={{ opacity: 0, scale: 0.8 }} // Start slightly smaller for a cleaner zoom
         whileInView={{ opacity: 0.6, scale: 1 }} // Triggers on scroll
         viewport={{ once: true, amount: 0.3 }} // 'once: true' means it won't re-animate every time you scroll up/down
