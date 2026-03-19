@@ -100,6 +100,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  to="/contact"
+                  className="text-gray-400 hover:text-[#0ca7e6] transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/terms"
                   className="text-red-400 hover:text-[#0ca7e6] transition-colors"
                 >
