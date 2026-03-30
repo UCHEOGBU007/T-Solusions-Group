@@ -7,7 +7,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 
 export function Contact() {
   const brandColor = "#0CA7E6";
@@ -65,18 +65,18 @@ export function Contact() {
       if (!formspreeResponse.ok)
         throw new Error("Database synchronization failed.");
 
-      // B. Submit to EmailJS (Auto-reply to Client)
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          to_name: sanitizedData.name,
-          to_email: sanitizedData.email,
-          service_requested: sanitizedData.service,
-          message: sanitizedData.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      );
+      // // B. Submit to EmailJS (Auto-reply to Client)
+      // await emailjs.send(
+      //   import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      //   import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      //   {
+      //     to_name: sanitizedData.name,
+      //     to_email: sanitizedData.email,
+      //     service_requested: sanitizedData.service,
+      //     message: sanitizedData.message,
+      //   },
+      //   import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      // );
 
       // C. SUCCESS FLOW
       setStatus("success");
@@ -150,13 +150,13 @@ export function Contact() {
                   <div className="relative overflow-hidden p-4 bg-green-50 text-green-700 rounded-xl border border-green-200">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 size={20} className="shrink-0" />
-                      <p className="font-medium text-sm">
-                        Success! We've received your brief and sent a
-                        confirmation email.
+                      <p className="font-medium text-lg">
+                        Success! We've received your message and we will get
+                        back to you soon.
                       </p>
                     </div>
                     {/* Animated Progress Bar */}
-                    <div className="absolute bottom-0 left-0 h-1 bg-green-500 animate-[progress_6s_linear]" />
+                    <div className="absolute bottom-0 left-0 h-1 bg-green-500 animate-[progress_10s_linear]" />
                   </div>
                 )}
 

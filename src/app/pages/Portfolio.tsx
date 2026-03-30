@@ -119,8 +119,7 @@ export function Portfolio() {
       category: "web",
       description: "Salon booking system, management and records",
       technologies: ["Reactjs", "Supabase", "javascript"],
-      image:
-        "https://images.unsplash.com/photo-1614029896656-a094f640558d?q=80&w=1080",
+      image: "/topnotch.png",
       icon: <Code />,
     },
     {
@@ -130,8 +129,7 @@ export function Portfolio() {
       description:
         "Restaurant e-commerce webapp with order management,reservation and records",
       technologies: ["Reactjs", "Supabase", "Context Api"],
-      image:
-        "https://images.unsplash.com/photo-1614029896656-a094f640558d?q=80&w=1080",
+      image: "/Little-lemon-new.png",
       icon: <Code />,
     },
     {
@@ -140,8 +138,7 @@ export function Portfolio() {
       category: "mobile",
       description: "Interactive quiz application for mobile devices",
       technologies: ["React Native", "Expo", "Firebase"],
-      image:
-        "https://images.unsplash.com/photo-1614029896656-a094f640558d?q=80&w=1080",
+      image: "/quiz.jpg",
       icon: <Code />,
     },
   ];
