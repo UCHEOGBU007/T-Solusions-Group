@@ -1,5 +1,6 @@
 import { useEffect } from "react"; // 1. Import useEffect
 import { BrowserRouter, Routes, Route, useLocation } from "react-router"; // useLocation for scrolling top when page changes
+import { Analytics } from "@vercel/analytics/react";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
@@ -40,6 +41,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      <Analytics />
     </BrowserRouter>
   );
 }
