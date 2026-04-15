@@ -148,7 +148,7 @@ export function Portfolio() {
     {
       name: "John Smith",
       company: "TechStart Inc",
-      quote: "DevStudio transformed our vision into reality.",
+      quote: "T-Solusions transformed our vision into reality.",
       role: "CEO",
     },
     {
