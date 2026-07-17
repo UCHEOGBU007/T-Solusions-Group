@@ -178,7 +178,7 @@ export function Home() {
             >
               <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-white">
                 Transform Your Ideas Into{" "}
-                <span className="text-[#0CA7E6]">Digital Reality</span>
+                <span className="text-[#0CA7E6]">a Digital Reality</span>
               </h1>
               <p className="text-xl mb-8 text-blue-100 max-w-lg">
                 We are a leading software development agency specializing in
