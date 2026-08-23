@@ -85,11 +85,36 @@ export function Portfolio() {
   const projects = [
     {
       id: 1,
+      title: "POS Software",
+      category: "web",
+      description:
+        " Pos web app for sales management, inventory management, sales tracking, reporting feature,stock management and more.",
+      technologies: [
+        "Reactjs",
+        "Typescript",
+        "BaaS",
+        "Context Api",
+        "Xendit",
+        "TaiwlindCss",
+      ],
+      image: "/posapp.webp",
+      icon: <Code />,
+      src: "https://possoftware-inky.vercel.app/",
+    },
+    {
+      id: 1,
       title: "Tourism webapp",
       category: "web",
       description:
         "Tourism web application with booking  and management system for tourism and travel agencies",
-      technologies: ["Reactjs", "Supabase", "Context Api, Stripe"],
+      technologies: [
+        "Reactjs",
+        "ExpressJs",
+        "Context Api",
+        "Stripe",
+        "Typescript",
+        "Tailwind Css",
+      ],
       image: "/Tourismwebapp.jpeg",
       icon: <Code />,
       src: "https://gaura-journeys.vercel.app/",
@@ -112,7 +137,7 @@ export function Portfolio() {
       title: "Salon webapp",
       category: "web",
       description: "Salon booking system, management and records",
-      technologies: ["Reactjs", "Supabase", "javascript"],
+      technologies: ["Reactjs", "Supabase", "javascript", "Vanilla-Css3"],
       image: "/topnotch.png",
       icon: <Code />,
       src: "https://top-notch-salon.vercel.app/",
