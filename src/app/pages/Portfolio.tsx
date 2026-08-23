@@ -102,7 +102,7 @@ export function Portfolio() {
       src: "https://possoftware-inky.vercel.app/",
     },
     {
-      id: 1,
+      id: 2,
       title: "Tourism webapp",
       category: "web",
       description:
@@ -121,7 +121,7 @@ export function Portfolio() {
     },
 
     {
-      id: 2,
+      id: 3,
       title: "Courier & Logistic  Webapp",
       category: "web",
       description:
@@ -133,7 +133,7 @@ export function Portfolio() {
     },
 
     {
-      id: 3,
+      id: 4,
       title: "Salon webapp",
       category: "web",
       description: "Salon booking system, management and records",
@@ -144,7 +144,7 @@ export function Portfolio() {
     },
 
     {
-      id: 4,
+      id: 5,
       title: "Dummy Restaurant webapp",
       category: "web",
       description:
@@ -156,7 +156,7 @@ export function Portfolio() {
     },
 
     {
-      id: 5,
+      id: 6,
       title: "E-Commerce Platform",
       category: "web",
       description: "Advanced filtering and payment integration",
@@ -167,7 +167,7 @@ export function Portfolio() {
     },
 
     {
-      id: 6,
+      id: 7,
       title: "Healthcare System",
       category: "web",
       description: "Patient management and records",
@@ -179,7 +179,7 @@ export function Portfolio() {
     },
 
     {
-      id: 7,
+      id: 8,
       title: "Fitness Tracking",
       category: "mobile",
       description: "Workout and nutrition tracking",
@@ -191,7 +191,7 @@ export function Portfolio() {
     },
 
     {
-      id: 8,
+      id: 9,
       title: "Quiz Game mobile app",
       category: "mobile",
       description: "Interactive quiz application for mobile devices",
