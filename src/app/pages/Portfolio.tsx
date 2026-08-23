@@ -15,9 +15,9 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 
 /**
  * Stabilized Animated Counter Component
